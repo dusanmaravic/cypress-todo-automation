@@ -70,5 +70,14 @@ describe('toDo list test', () => {
 
   it('can check all tasks as completed', () => {
     cy.get('.toggle').check()
+    cy.get('.footer').should('contain', '0 items left')
+    cy.get('.clear-completed').click()
+    cy.get('.new-todo').should('not.have.text', task)
+    cy.get('.clear-completed').should('not.exist')
+  })
+
+  it('can delete tasks', () => {
+    cy.get('.todo-list li').should('contain', task)
+    cy.get('button[class=destroy]').click()
   })
 })
