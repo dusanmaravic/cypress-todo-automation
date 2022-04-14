@@ -1,7 +1,5 @@
 /// <reference types='cypress' />
 
-const { should } = require("chai")
-
 describe('ToDoList Test', () => {
   const newToDo = 'First task'
   const newToDo2 = 'Second task'
@@ -14,11 +12,18 @@ describe('ToDoList Test', () => {
 
   it('create four todo list items', () => {
     cy.get('.new-todo').type(`${newToDo}{enter}`)
-    should('contain', newToDo)
+    cy.get('.todo-list li')
+    .should('contain', newToDo)
     cy.get('.new-todo').type(`${newToDo2}{enter}`)
+    cy.get('.todo-list li')
+    .should('contain', newToDo2)
     cy.get('.new-todo').type(`${newToDo3}{enter}`)
+    cy.get('.todo-list li')
+    .should('contain', newToDo3)
     cy.get('.new-todo').type(`${newToDo4}{enter}`)
+    cy.get('.todo-list li')
+    .should('contain', newToDo4)
     cy.get('.todo-list li').should('have.length', 4)
-    // .last().should('have.text', newToDo4)
+    .last().should('have.text', newToDo4)
   })
 })
