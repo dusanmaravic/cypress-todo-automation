@@ -3,12 +3,13 @@
 describe('toDo list test', () => {
   const task = 'Create test'
   const task2 = 'Edit test'
-  const task3 = 'Check test'
+  const task3 = 'Complete test'
   const task4 = 'Delete test'
 
   beforeEach(() => {
     cy.visit('https://todomvc.com/examples/angular2/')
 
+    // cy.log('create four todo items in the todo list')
     cy.get('.new-todo').type(`${task}{enter}`)
     cy.get('.todo-list li')
     .should('contain', task)
@@ -21,21 +22,6 @@ describe('toDo list test', () => {
     cy.get('.new-todo').type(`${task4}{enter}`)
     cy.get('.todo-list li')
     .should('contain', task4)
-  })
-
-  it('create four todo list items', () => {
-    // cy.get('.new-todo').type(`${task}{enter}`)
-    // cy.get('.todo-list li')
-    // .should('contain', task)
-    // cy.get('.new-todo').type(`${task2}{enter}`)
-    // cy.get('.todo-list li')
-    // .should('contain', task2)
-    // cy.get('.new-todo').type(`${task3}{enter}`)
-    // cy.get('.todo-list li')
-    // .should('contain', task3)
-    // cy.get('.new-todo').type(`${task4}{enter}`)
-    // cy.get('.todo-list li')
-    // .should('contain', task4)
 
     cy.get('.todo-list li')
     .should('have.length', 4)
@@ -68,7 +54,7 @@ describe('toDo list test', () => {
     cy.get('.todo-list li').should('have.length', 4)
   })
 
-  it('can check all tasks as completed', () => {
+  it('can complete all tasks', () => {
     cy.get('.toggle').check()
     cy.get('.footer').should('contain', '0 items left')
     cy.get('.clear-completed').click()
@@ -76,7 +62,7 @@ describe('toDo list test', () => {
     cy.get('.clear-completed').should('not.exist')
   })
 
-  it('can delete tasks', () => {
+  it('can delete all tasks', () => {
     cy.get('.todo-list li').contains(task)
     .next()
     .click({force: true})
