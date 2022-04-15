@@ -77,7 +77,23 @@ describe('toDo list test', () => {
   })
 
   it('can delete tasks', () => {
-    cy.get('.todo-list li').should('contain', task)
-    cy.get('button[class=destroy]').click()
+    cy.get('.todo-list li').contains(task)
+    .next()
+    .click({force: true})
+
+    cy.get('.todo-list li').contains(task2)
+    .next()
+    .click({force: true})
+
+    cy.get('.todo-list li').contains(task3)
+    .next()
+    .click({force: true})
+
+    cy.get('.todo-list li').contains(task4)
+    .next()
+    .click({force: true})
+
+    cy.get('.new-todo').should('not.have.text', task)
+    cy.get('.clear-completed').should('not.exist')
   })
 })
