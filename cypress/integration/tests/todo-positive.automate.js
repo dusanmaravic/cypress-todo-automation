@@ -1,6 +1,6 @@
 /// <reference types='cypress' />
 
-describe('toDo list positive test', () => {
+describe('ToDo list positive Test', () => {
   const task = 'Create test'
   const task2 = 'Edit test'
   const task3 = 'Complete test'

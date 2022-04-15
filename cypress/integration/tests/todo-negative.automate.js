@@ -1,6 +1,6 @@
 /// <reference types='cypress' />
 
-describe('toDo list negative test', () => {
+describe('ToDo list negative Test', () => {
     const numbers = 1010101010
     const specChar = '@$#%^^^#@!!@##'
     const emptyString = ''
