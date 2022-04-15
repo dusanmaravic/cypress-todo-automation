@@ -9,7 +9,6 @@ describe('toDo list test', () => {
   beforeEach(() => {
     cy.visit('https://todomvc.com/examples/angular2/')
 
-    // cy.log('create four todo items in the todo list')
     cy.get('.new-todo').type(`${task}{enter}`)
     cy.get('.todo-list li')
     .should('contain', task)
@@ -25,9 +24,27 @@ describe('toDo list test', () => {
 
     cy.get('.todo-list li')
     .should('have.length', 4)
-    // .last()
-    // .should('have.text', newToDo4)
+    .last()
+    .should('include.text', task4)
   })
+
+  // it('can create todo items', () => {
+  //   cy.get('.new-todo').type(`${task}{enter}`)
+  //   cy.get('.todo-list li')
+  //   .should('contain', task)
+  //   cy.get('.new-todo').type(`${task2}{enter}`)
+  //   cy.get('.todo-list li')
+  //   .should('contain', task2)
+  //   cy.get('.new-todo').type(`${task3}{enter}`)
+  //   cy.get('.todo-list li')
+  //   .should('contain', task3)
+  //   cy.get('.new-todo').type(`${task4}{enter}`)
+  //   cy.get('.todo-list li')
+  //   .should('contain', task4)
+
+  //   cy.get('.todo-list li')
+  //   .should('have.length', 4)
+  // })
 
   it('can edit all todo items', () => {
 
