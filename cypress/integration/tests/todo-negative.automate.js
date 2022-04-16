@@ -10,37 +10,39 @@ describe('ToDo list negative Test', () => {
     beforeEach(() => {
         cy.visit('https://todomvc.com/examples/angular2/')
         cy.location('pathname').should('equal', '/examples/angular2/')
+
+        cy.get('.new-todo').as('Todos')
     })
 
     it('create numbers todo item', () => {
 
-        cy.get('.new-todo').type(`${numbers}{enter}`)
+        cy.get('@Todos').type(`${numbers}{enter}`)
         .first()
         cy.get('.todo-list li').should('contain', numbers)
     })
 
     it('create special char todo item', () => {
 
-        cy.get('.new-todo').type(`${specChar}{enter}`)
+        cy.get('@Todos').type(`${specChar}{enter}`)
         .first()
         cy.get('.todo-list li').should('contain', specChar)
     })
 
     it('create empty string todo item', () => {
 
-        cy.get('.new-todo').type(`${emptyString}{enter}`)
+        cy.get('@Todos').type(`${emptyString}{enter}`)
         .should('contain', emptyString)
         expect(emptyString).to.be.empty
     })
 
     // it('create empty space string todo item', () => {
 
-    //     cy.get('.new-todo').type(`${emptySpace}{enter}`)
+    //     cy.get('@Todos').type(`${emptySpace}{enter}`)
     //     .should('contain', emptySpace)
     // })
 
     it('create undefined todo item', () => {
-        cy.get('.new-todo').type(`${undefined}{enter}`)
+        cy.get('@Todos').type(`${undefined}{enter}`)
         cy.get('.todo-list li')
         expect(undefined).to.be.null.value
     })
