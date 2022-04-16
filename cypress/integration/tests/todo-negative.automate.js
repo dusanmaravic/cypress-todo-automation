@@ -9,6 +9,7 @@ describe('ToDo list negative Test', () => {
 
     beforeEach(() => {
         cy.visit('https://todomvc.com/examples/angular2/')
+        cy.location('pathname').should('equal', '/examples/angular2/')
     })
 
     it('create numbers todo item', () => {

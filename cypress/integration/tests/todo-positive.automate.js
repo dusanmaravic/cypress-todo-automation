@@ -8,6 +8,7 @@ describe('ToDo list positive Test', () => {
 
   beforeEach(() => {
     cy.visit('https://todomvc.com/examples/angular2/')
+    cy.location('pathname').should('equal', '/examples/angular2/')
 
     // cy.get('.new-todo').type(`${task}{enter}`)
     // cy.get('.todo-list li')
