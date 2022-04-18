@@ -32,6 +32,7 @@ describe('ToDo list negative Test', () => {
 
         cy.get('@Todos').type(`${emptyString}{enter}`)
         .should('contain', emptyString)
+        //assert that no item is entered
         expect(emptyString).to.be.empty
     })
 
@@ -44,6 +45,7 @@ describe('ToDo list negative Test', () => {
     it('create undefined todo item', () => {
         cy.get('@Todos').type(`${undefined}{enter}`)
         cy.get('.todo-list li')
+        //assert undefined value is null
         expect(undefined).to.be.null.value
     })
 })
