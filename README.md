@@ -33,14 +33,14 @@ All the tests are inside *cypress/integration/tests* folder
   
 ```
 ## cypress scripts
-  npm run open
+npm run open
 ```
 *From the test runner you can choose the browser and which test to run*
 
 - To run and record headless browser tests, in `Terminal` type:
 ```
 ## cypress scripts
-  npm run test
+npm run test
 ```
 Tests will be automatically recorded and put in *cypress/videos/tests* folder
 
