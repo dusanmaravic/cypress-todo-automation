@@ -37,12 +37,26 @@ npm run open
 ```
 *From the test runner you can choose the browser and which test to run*
 
-- To run and record headless browser tests, in `Terminal` type:
+- To run and record headless browser tests from command line, in `Terminal` type:
 ```
 ## cypress scripts
 npm run test
 ```
-Tests will be automatically recorded and put in *cypress/videos/tests* folder
+If needed, test recording feature can be switched on in *cypress.json* file by setting:
+
+```
+{
+    "video": false
+}
+```
+
+to
+
+```
+{
+    "video": true
+}
+```
 
 
 
