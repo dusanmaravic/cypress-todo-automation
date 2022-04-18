@@ -36,11 +36,11 @@ describe('ToDo list negative Test', () => {
         expect(emptyString).to.be.empty
     })
 
-    // it('create empty space string todo item', () => {
+    it('create empty space string todo item', () => {
 
-    //     cy.get('@Todos').type(`${emptySpace}{enter}`)
-    //     .should('contain', emptySpace)
-    // })
+        cy.get('@Todos').type(`${emptySpace}{enter}`)
+        .should('contain', emptySpace)
+    })
 
     it('create undefined todo item', () => {
         cy.get('@Todos').type(`${undefined}{enter}`)

@@ -53,7 +53,7 @@ describe('ToDo list positive Test', () => {
     .should('have.length', 4)
   })
 
-  it('can edit all todo items', () => {
+  it('can edit todo items', () => {
 
     cy.get('@Todos').type(`${task}{enter}`)
     cy.get('.todo-list li').contains(task).dblclick()
@@ -81,7 +81,7 @@ describe('ToDo list positive Test', () => {
     cy.get('.todo-list li').should('have.length', 4)
   })
 
-  it('can complete all tasks', () => {
+  it('can mark todo items as completed', () => {
 
     cy.get('@Todos').type(`${task}{enter}`)
     cy.get('@Todos').type(`${task2}{enter}`)
@@ -97,7 +97,7 @@ describe('ToDo list positive Test', () => {
     cy.get('.clear-completed').should('not.exist')
   })
 
-  it('can delete all tasks', () => {
+  it('can delete todo items', () => {
 
     cy.get('@Todos').type(`${task}{enter}`)
     cy.get('@Todos').type(`${task2}{enter}`)
